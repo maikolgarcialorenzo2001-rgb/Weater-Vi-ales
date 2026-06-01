@@ -328,7 +328,9 @@ export class WeatherMap implements OnDestroy {
 
   // --- Grilla de precipitación ---
   private async fetchRainGrid(): Promise<void> {
-    if (this.weather().current.precipitation < 0.3) return;
+    const w = this.weather().current;
+    const isRainCode = (w.weatherCode >= 51 && w.weatherCode <= 86) || w.weatherCode >= 95;
+    if (w.precipitation < 0.3 && !isRainCode) return;
 
     const size = 7;
     const step = 0.02;

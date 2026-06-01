@@ -116,17 +116,9 @@ export class WeatherService implements OnDestroy {
   }
 
   private parseResponse(raw: OpenMeteoResponse): WeatherData {
-    // Fix: si la API reporta lluvia/llovizna pero la precipitación es casi nula,
-    // probablemente es un falso positivo — mostramos "Despejado" o "Poco nuboso"
-    let wmo = raw.current?.weather_code ?? 0;
-    const precip = raw.current?.precipitation ?? 0;
+    const wmo = raw.current?.weather_code ?? 0;
     const cloud = raw.current?.cloud_cover ?? 0;
-
-    // Códigos de precipitación: 51-67 (drizzle/rain/freezing), 80-82 (showers)
-    const isRainCode = (wmo >= 51 && wmo <= 67) || (wmo >= 80 && wmo <= 82);
-    if (isRainCode && precip < 0.5) {
-      wmo = cloud < 40 ? 0 : 2; // 0 = despejado, 2 = intervalos nubosos
-    }
+    const precip = raw.current?.precipitation ?? 0;
 
     const current: CurrentWeather | null = raw.current
       ? {
