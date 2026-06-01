@@ -116,9 +116,29 @@ export class WeatherService implements OnDestroy {
   }
 
   private parseResponse(raw: OpenMeteoResponse): WeatherData {
-    const wmo = raw.current?.weather_code ?? 0;
+    let wmo = raw.current?.weather_code ?? 0;
     const cloud = raw.current?.cloud_cover ?? 0;
     const precip = raw.current?.precipitation ?? 0;
+
+    // Fix: Open-Meteo a veces no capta lluvias locales ligeras en Viñales.
+    // Si el código dice despejado/nuboso (0-3) pero hay precipitación,
+    // sobreescribimos según la intensidad.
+    let description: string;
+    if (precip > 0 && wmo <= 3) {
+      if (precip >= 0.3) {
+        // Suficiente precipitación → lluvia declarada
+        if (precip >= 5)      { wmo = 65; description = 'Lluvia intensa'; }
+        else if (precip >= 1) { wmo = 63; description = 'Lluvia moderada'; }
+        else                  { wmo = 61; description = 'Lluvia ligera'; }
+      } else {
+        // Lluvia muy ligera / llovizna — combinamos con la nubosidad original
+        if (wmo === 2)        { wmo = 51; description = 'Intervalos nubosos con llovizna'; }
+        else if (wmo === 3)   { wmo = 51; description = 'Muy nuboso con llovizna'; }
+        else                  { wmo = 51; description = 'Llovizna ligera'; }
+      }
+    } else {
+      description = getWeatherDescription(wmo);
+    }
 
     const current: CurrentWeather | null = raw.current
       ? {
@@ -129,7 +149,7 @@ export class WeatherService implements OnDestroy {
           windDirection: raw.current.wind_direction_10m,
           uvIndex: raw.current.uv_index,
           weatherCode: wmo,
-          description: getWeatherDescription(wmo),
+          description,
           isDay: raw.current.is_day === 1,
           cloudCover: cloud,
           pressure: raw.current.pressure_msl ?? 0,
