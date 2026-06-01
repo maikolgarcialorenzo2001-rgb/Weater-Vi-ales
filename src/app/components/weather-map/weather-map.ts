@@ -119,7 +119,8 @@ export class WeatherMap implements OnDestroy {
   }
 
   private async initMap(): Promise<void> {
-    const L = await import('leaflet');
+    const mod = await import('leaflet');
+    const L = mod.default ?? mod;
     this.L = L;
 
     const bounds = L.latLngBounds(
