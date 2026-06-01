@@ -2,7 +2,7 @@
   "name": "Clima Local - Viñales",
   "short_name": "ClimaLocal",
   "description": "App del clima para Viñales, Cuba",
-  "start_url": "/",
+  "start_url": ".",
   "display": "standalone",
   "background_color": "#0f172a",
   "theme_color": "#0f172a",
