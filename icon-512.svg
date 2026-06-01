@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
+  <rect width="512" height="512" rx="64" fill="#0f172a"/>
+  <!-- sol -->
+  <circle cx="256" cy="220" r="56" fill="#facc15" stroke="#facc15" stroke-width="4"/>
+  <!-- rayos sol -->
+  <g stroke="#facc15" stroke-width="6" stroke-linecap="round">
+    <line x1="256" y1="112" x2="256" y2="82"/>
+    <line x1="256" y1="328" x2="256" y2="358"/>
+    <line x1="156" y1="220" x2="126" y2="220"/>
+    <line x1="356" y1="220" x2="386" y2="220"/>
+    <line x1="182" y1="146" x2="162" y2="126"/>
+    <line x1="330" y1="146" x2="350" y2="126"/>
+    <line x1="182" y1="294" x2="162" y2="314"/>
+    <line x1="330" y1="294" x2="350" y2="314"/>
+  </g>
+  <!-- nube -->
+  <path d="M180 330 a48 48 0 0 1 48-48 a64 64 0 0 1 116 0 a44 44 0 0 1 0 88H176a44 44 0 0 1 4-40z" fill="#38bdf8"/>
+  <!-- gotas -->
+  <path d="M240 395 L232 415 h16 z" fill="#38bdf8"/>
+  <path d="M272 405 L264 425 h16 z" fill="#38bdf8"/>
+</svg>

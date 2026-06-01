@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="192" height="192" viewBox="0 0 192 192">
+  <rect width="192" height="192" rx="32" fill="#0f172a"/>
+  <!-- sol -->
+  <circle cx="96" cy="84" r="24" fill="#facc15" stroke="#facc15" stroke-width="2"/>
+  <!-- rayos sol -->
+  <g stroke="#facc15" stroke-width="3" stroke-linecap="round">
+    <line x1="96" y1="40" x2="96" y2="28"/>
+    <line x1="96" y1="128" x2="96" y2="140"/>
+    <line x1="56" y1="84" x2="44" y2="84"/>
+    <line x1="136" y1="84" x2="148" y2="84"/>
+    <line x1="68" y1="56" x2="60" y2="48"/>
+    <line x1="124" y1="56" x2="132" y2="48"/>
+    <line x1="68" y1="112" x2="60" y2="120"/>
+    <line x1="124" y1="112" x2="132" y2="120"/>
+  </g>
+  <!-- nube -->
+  <path d="M72 124 a20 20 0 0 1 20-20 a26 26 0 0 1 48 0 a18 18 0 0 1 0 36h-64a18 18 0 0 1-4-16z" fill="#38bdf8"/>
+  <!-- gota -->
+  <path d="M96 145 L92 155 h8 z" fill="#38bdf8"/>
+</svg>

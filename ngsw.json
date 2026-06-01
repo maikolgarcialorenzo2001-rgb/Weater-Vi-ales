@@ -1,0 +1,87 @@
+{
+  "configVersion": 1,
+  "timestamp": 1780353641749,
+  "index": "/Weater-Vi-ales/index.csr.html",
+  "assetGroups": [
+    {
+      "name": "app",
+      "installMode": "prefetch",
+      "updateMode": "prefetch",
+      "cacheQueryOptions": {
+        "ignoreVary": true
+      },
+      "urls": [
+        "/Weater-Vi-ales/chunk-GAIXAPVQ.js",
+        "/Weater-Vi-ales/chunk-IMPBB4AK.js",
+        "/Weater-Vi-ales/chunk-LGFMJRZR.js",
+        "/Weater-Vi-ales/chunk-UYQ2B4R5.js",
+        "/Weater-Vi-ales/favicon.ico",
+        "/Weater-Vi-ales/favicon.svg",
+        "/Weater-Vi-ales/icon-180-apple.png",
+        "/Weater-Vi-ales/icon-192.png",
+        "/Weater-Vi-ales/icon-192.svg",
+        "/Weater-Vi-ales/icon-512-maskable.png",
+        "/Weater-Vi-ales/icon-512.png",
+        "/Weater-Vi-ales/icon-512.svg",
+        "/Weater-Vi-ales/icon-96.png",
+        "/Weater-Vi-ales/main-SFAGRL7P.js",
+        "/Weater-Vi-ales/manifest.webmanifest",
+        "/Weater-Vi-ales/styles-5PPQTXU4.css"
+      ],
+      "patterns": []
+    }
+  ],
+  "dataGroups": [
+    {
+      "name": "weather-api",
+      "patterns": [
+        "https:\\/\\/api\\.open-meteo\\.com\\/v1\\/forecast"
+      ],
+      "strategy": "freshness",
+      "maxSize": 15,
+      "maxAge": 604800000,
+      "timeoutMs": 10000,
+      "cacheQueryOptions": {
+        "ignoreVary": true
+      },
+      "version": 1
+    }
+  ],
+  "hashTable": {
+    "/Weater-Vi-ales/chunk-GAIXAPVQ.js": "e30fcb05f673a25e1bfcdc1e02074a8ab19a3193",
+    "/Weater-Vi-ales/chunk-IMPBB4AK.js": "b808d1bcf32ded8ed458df18979c861687d0ccb3",
+    "/Weater-Vi-ales/chunk-LGFMJRZR.js": "6e1f36eddc66a0c60eb5da25fa22fff3998c95e0",
+    "/Weater-Vi-ales/chunk-UYQ2B4R5.js": "eb79d10ffffa811a4d029f90d2cd8e705a44353a",
+    "/Weater-Vi-ales/favicon.ico": "9c39f434fe1261f68c5e3eefdf734630d99c5670",
+    "/Weater-Vi-ales/favicon.svg": "160fa95e2045e6e15d625c71b5ff9bff464f649d",
+    "/Weater-Vi-ales/icon-180-apple.png": "12f1339e7016fec9287afda58b031986d19e7b57",
+    "/Weater-Vi-ales/icon-192.png": "fcba08ad11e2fd28cf8d1c710291e61cfc0702b6",
+    "/Weater-Vi-ales/icon-192.svg": "c79231dcfea228cf70456adda5c38c51152c6315",
+    "/Weater-Vi-ales/icon-512-maskable.png": "12b4962bea076ef96cb9b16088a7aec291d90aff",
+    "/Weater-Vi-ales/icon-512.png": "12b4962bea076ef96cb9b16088a7aec291d90aff",
+    "/Weater-Vi-ales/icon-512.svg": "5ce69f2597955876a5a2310df21ecc28848034d4",
+    "/Weater-Vi-ales/icon-96.png": "b2b9597220d904194136698ec009e78967955616",
+    "/Weater-Vi-ales/main-SFAGRL7P.js": "53ded5a1e4138a139d9624b4cf6e0550a8b271e6",
+    "/Weater-Vi-ales/manifest.webmanifest": "5b1ebcb8d53a6316e1de2198d7dc1c73ce0f2dac",
+    "/Weater-Vi-ales/styles-5PPQTXU4.css": "118dd3559f8eeae5df0ea002d26dc3fa40161872"
+  },
+  "navigationUrls": [
+    {
+      "positive": true,
+      "regex": "^\\/.*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*\\.[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*\\/.*$"
+    }
+  ],
+  "navigationRequestStrategy": "performance"
+}
