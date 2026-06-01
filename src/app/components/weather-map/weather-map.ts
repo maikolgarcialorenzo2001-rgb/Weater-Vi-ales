@@ -207,7 +207,13 @@ export class WeatherMap implements OnDestroy {
     const abort = new AbortController();
     this.pendingAbort = abort;
 
-    const url = `/api/landmark-weather?lat=${m.lat}&lng=${m.lng}`;
+    const params = new URLSearchParams({
+      latitude: m.lat.toString(),
+      longitude: m.lng.toString(),
+      current: 'temperature_2m,relative_humidity_2m,apparent_temperature,weather_code,wind_speed_10m,wind_direction_10m,uv_index,is_day,cloud_cover,precipitation',
+      timezone: 'auto',
+    });
+    const url = `https://api.open-meteo.com/v1/forecast?${params}`;
 
     fetch(url, { signal: abort.signal })
       .then((r) => (r.ok ? r.json() : Promise.reject(r.status)))

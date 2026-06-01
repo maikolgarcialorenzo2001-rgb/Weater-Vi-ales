@@ -2,6 +2,10 @@
 
 # Compiled output
 /dist
+/browser
+/server
+3rdpartylicenses.txt
+prerendered-routes.json
 /tmp
 /out-tsc
 /bazel-out
