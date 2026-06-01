@@ -16,13 +16,13 @@
 }
 .light {
   --svg-primary: #0f172a;
-  --svg-secondary: #475569;
-  --svg-tertiary: #94a3b8;
+  --svg-secondary: #1e293b;
+  --svg-tertiary: #334155;
   --svg-accent: #0284c7;
-  --svg-white: #ffffff;
-  --svg-grid: rgba(0,0,0,0.15);
-  --svg-grid-inner: rgba(0,0,0,0.08);
-  --svg-track-bg: rgba(0,0,0,0.06);
+  --svg-white: #0f172a;
+  --svg-grid: rgba(0,0,0,0.12);
+  --svg-grid-inner: rgba(0,0,0,0.06);
+  --svg-track-bg: rgba(0,0,0,0.05);
 }
 
 /* === Dark theme para Leaflet (default) === */
