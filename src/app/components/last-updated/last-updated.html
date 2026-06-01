@@ -1,0 +1,5 @@
+@if (lastFetched()) {
+  <p class="text-xs text-slate-400 light:text-slate-600">
+    Actualizado {{ lastFetched() | date:'HH:mm' }}
+  </p>
+}

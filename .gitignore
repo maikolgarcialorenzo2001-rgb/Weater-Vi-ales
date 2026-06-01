@@ -42,3 +42,14 @@ __screenshots__/
 # System files
 .DS_Store
 Thumbs.db
+
+# AI tooling
+.atl/
+
+# Package manager (Bun only)
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# Accidental artifact
+nul

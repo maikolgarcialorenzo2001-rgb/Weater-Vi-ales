@@ -1,0 +1,37 @@
+<div class="mx-6 mt-6">
+  <h2 class="mb-3 text-sm font-semibold uppercase tracking-wider text-slate-400 light:text-slate-600">
+    Pronóstico 7 días
+  </h2>
+
+  <div class="divide-y divide-white/10 light:divide-slate-200 rounded-2xl bg-white/10 light:bg-slate-200/50">
+    @for (day of days(); track day.date) {
+      <div class="flex items-center justify-between px-4 py-3">
+        <span class="w-10 text-sm text-slate-300 light:text-slate-700">
+          {{ day.date | date:'EEE' }}
+        </span>
+        <app-weather-icon
+          [code]="day.weatherCode"
+          size="1.1rem"
+          class="text-cyan-400 mx-2"
+        />
+        <span class="text-xs text-slate-400 light:text-slate-600">
+          {{ day.temperatureMin | number:'1.0-0' }}°
+        </span>
+        <div class="mx-3 h-1.5 flex-1 rounded-full bg-slate-600 light:bg-slate-300">
+          <div
+            class="h-full rounded-full bg-gradient-to-r from-blue-400 to-orange-300"
+            [style.width.%]="temperatureRange(day.temperatureMin, day.temperatureMax)"
+          ></div>
+</div>
+        <span class="text-sm font-medium text-white light:text-slate-900">
+          {{ day.temperatureMax | number:'1.0-0' }}°
+        </span>
+        @if (day.precipitationProbability > 0) {
+          <span class="ml-2 text-xs text-blue-300 light:text-blue-600">
+            {{ day.precipitationProbability }}%
+          </span>
+        }
+      </div>
+    }
+  </div>
+</div>

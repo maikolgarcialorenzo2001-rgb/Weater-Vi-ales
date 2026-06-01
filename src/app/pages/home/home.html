@@ -1,0 +1,63 @@
+<div class="min-h-dvh bg-slate-900 light:bg-slate-50 pb-8">
+  <app-offline-banner />
+
+  <!-- Toggle modo claro/oscuro -->
+  <button
+    (click)="theme.toggle()"
+    class="fixed top-4 right-4 z-50 p-2 rounded-full bg-slate-800 light:bg-white text-slate-400 light:text-slate-600 hover:text-cyan-400 light:hover:text-cyan-600 transition-colors shadow-lg"
+    [attr.aria-label]="theme.isLight() ? 'Modo oscuro' : 'Modo claro'"
+  >
+    @if (theme.isLight()) {
+      <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+        <path d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/>
+      </svg>
+    } @else {
+      <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+        <path d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/>
+      </svg>
+    }
+  </button>
+
+  @if (!weather() && !loading() && error()) {
+    <div class="mx-6 mt-20 text-center text-slate-400 light:text-slate-600">
+      <p class="text-lg">No se pudo cargar el clima</p>
+      <p class="mt-1 text-sm">{{ error() }}</p>
+      <button
+        class="mt-4 rounded-xl bg-white/10 light:bg-slate-200/50 px-6 py-2 text-sm font-medium text-white light:text-slate-900 active:bg-white/20"
+        (click)="retry()"
+      >
+        Reintentar
+      </button>
+    </div>
+  } @else if (loading() && !weather()) {
+    <div class="flex min-h-dvh items-center justify-center">
+      <div class="h-8 w-8 animate-spin rounded-full border-2 border-white/20 light:border-slate-300 border-t-white light:border-t-slate-600"></div>
+    </div>
+  } @else if (weather(); as w) {
+    <div class="pt-12">
+      @if (error()) {
+        <div class="mx-6 mb-4 rounded-xl bg-amber-500/10 border border-amber-500/30 px-4 py-2.5 text-xs text-amber-300 light:text-amber-700">
+          <div class="flex items-center justify-between">
+            <span>Mostrando datos anteriores — sin conexión</span>
+            <button class="underline text-amber-400 active:text-amber-200" (click)="retry()">
+              Reintentar
+            </button>
+          </div>
+        </div>
+      }
+
+      <div class="px-6">
+        <h1 class="text-sm font-semibold uppercase tracking-widest text-slate-400 light:text-slate-600">
+          Viñales, Cuba
+        </h1>
+        <app-last-updated [lastFetched]="w.fetchedAt" />
+      </div>
+
+      <app-current-weather [weather]="w.current" />
+      <app-hourly-forecast [hours]="w.hourly" />
+      <app-daily-forecast [days]="w.daily" />
+      <app-weather-dashboard [weather]="w" />
+      <app-weather-map [weather]="w" />
+    </div>
+  }
+</div>

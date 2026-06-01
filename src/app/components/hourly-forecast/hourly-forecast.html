@@ -1,0 +1,27 @@
+<div class="mx-6 mt-6">
+  <h2 class="mb-3 text-sm font-semibold uppercase tracking-wider text-slate-400 light:text-slate-600">
+    Pronóstico por hora
+  </h2>
+
+  <div class="flex gap-4 overflow-x-auto pb-2" style="-webkit-overflow-scrolling: touch;">
+    @for (hour of hours(); track hour.time) {
+      <div class="flex shrink-0 flex-col items-center gap-1">
+        <span class="text-xs text-slate-400 light:text-slate-600">{{ hour.time | date:'HH:mm' }}</span>
+        <app-weather-icon
+          [code]="hour.weatherCode"
+          [isDay]="hour.isDay"
+          size="1.1rem"
+          class="text-cyan-400"
+        />
+        <span class="text-sm font-medium text-white light:text-slate-900">
+          {{ hour.temperature | number:'1.0-0' }}°
+        </span>
+        @if (hour.precipitationProbability > 0) {
+          <span class="text-[10px] text-blue-300">
+            {{ hour.precipitationProbability }}%
+          </span>
+        }
+      </div>
+    }
+  </div>
+</div>
